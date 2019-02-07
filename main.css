@@ -23,3 +23,21 @@ nav ul {
     color: green;
   }
   
+  .project {
+   text-decoration: none;
+  
+  }
+  
+figure {
+  max-width: 200px;
+}
+
+  .project-pic {
+   max-width: 200px;
+  }
+  
+  .project-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center; 
+  }
