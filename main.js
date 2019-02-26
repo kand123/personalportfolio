@@ -1,19 +1,26 @@
- - ES 6 - latest javascript 
- variable - container that stores a value 
- var myVariable -declared a variable, but not initialized
-(old)
- let thisVariable = 'thor' equal sign is an operator single equal sign assignment operator
- const ANSWER = 42 
-(new)
+import { films } from './films.js'
 
-good resource on mdn 
+films.sort((a,b) => (a.episode_id > b.episode_id) ? 1 : -1)
 
-=== quality checking
+const intro = document.querySelector('.intro')
 
-array [] uses square brackets 
-let minArray can store info - different types of number, objects, other arrays, boolean, etc.
+films.forEach ((film) => {
+    let tile = document.createElement ('div')
+    
+    let titleElement = document.createElement('h1')
+    let crawlElement = document.createElement('h3')
 
-0 based - first item is 0, and so on 
+    titleElement.textContent = film.title
+    crawlElement.textContent = film.opening_crawl
 
-myArray[0] points to the first 
+    tile.appendChild(titleElement)
+    tile.appendChild(crawlElement)
+    intro.appendChild(tile)
+})
 
+// let titleElement = document.querySelector('.title')
+// let crawlElement = document.querySelector('.crawl')
+
+
+// titleElement.textContent = films[0].title
+// crawlElement.textContent = films[0].opening_crawl

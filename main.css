@@ -39,7 +39,9 @@ nav ul {
     min-height: 55vh;
     padding-top: 45vh;
     text-align: center; 
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
   }
   
   .work {
@@ -160,10 +162,14 @@ h1 {
     background-color: #D6D8C9; 
   }
 
-  #projects {
   
-  }
 
   .header {
     padding: 160px 0 110px;
+  }
+
+  .intro div {
+     width: 400px; 
+     height: 320px;
+     margin-bottom: 40px; 
   }
