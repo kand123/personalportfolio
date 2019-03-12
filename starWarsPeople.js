@@ -1,54 +1,46 @@
 import { people } from '../data/people.js'
 import { planets } from '../data/planets.js'
 
-const men = people.filter(person => person.gender === 'male')
-const women = people.filter(person => person.gender === 'female')
-const other = people.filter(person => (person.gender === 'n/a') || (person.gender === 'hermaphrodite') || (person.gender === 'none'))
-
-//console.log (men, women, other)
-
-const allHomeWorlds = people.map (person => {
-    let foundWorld = planets.find(element => {
-        return element.url === person.homeworld
+const allHomeWorlds = people.map(person => {
+    let foundWorld = planets.find(planet => {
+        return planet.url === person.homeworld 
     })
-    return { name: person.name, home: person.foundworld}
+
+    const getLastNumber = (url) => {
+        let end = url.lastIndexOf('/')
+        
+        let start = end -2
+        console.log(start + ' ' + end)
+    }
+    
+
+    getLastNumber(person.url)
+    return {
+        name: person.name,
+        home: foundWorld.name,
+        eye_color: person.eye_color
+    }
 })
+//console.log(allHomeWorlds)
 
-console.log(allHomeWorlds)
 
-//const peopleAndPlanets = [...people, ...planets]
-
-//console.log(peopleAndPlanets)
-
-//const homeWorlds = peopleAndPlanets.find((element) => {
-  //  return element.url === element.homeworld
-//})
-
-//console.log(homeWorld)
+//http://starwars-visualguide.com/assets/img/characters/1.jpg
 
 const mainContainer = document.createElement('div')
 mainContainer.className = 'container'
 
-men.forEach((man) => {
-    let manElement = document.createElement('div')
-    manElement.className = 'box'
-    manElement.textContent = man.name
-    mainContainer.appendChild(manElement)
-    let eyeColor = document.createElement('p')
-    eyeColor.textContent = man.eye_color
-    manElement.appendChild(eyeColor)
-    mainContainer.appendChild(manElement)
+allHomeWorlds.forEach((person) => {
+    let personElement = document.createElement('div')
+    let planetElement = document.createElement('p')
+    personElement.className = 'box'
+    personElement.textContent = person.name
+    planetElement.textContent = person.home
+   
+   
+   personElement.appendChild(planetElement)
+    mainContainer.appendChild(personElement)
 })
 
-women.forEach((man) => {
-    let manElement = document.createElement('div')
-    manElement.className = 'box'
-    manElement.textContent = man.name
-    mainContainer.appendChild(manElement)
-    let eyeColor = document.createElement('p')
-    eyeColor.textContent = man.eye_color
-    manElement.appendChild(eyeColor)
-    mainContainer.appendChild(manElement)
-})
+
 
 document.body.appendChild(mainContainer)
